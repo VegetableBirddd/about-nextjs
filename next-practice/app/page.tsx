@@ -1,6 +1,7 @@
 import Image from "next/image";
-import { getDb,db } from "./lib/db";
+import { getUser } from "./lib/db";
 export default function Home() {
+  getUser();
   return (
     <main>
       <div>
