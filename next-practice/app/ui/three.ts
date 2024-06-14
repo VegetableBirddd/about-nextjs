@@ -45,11 +45,13 @@ export function initThree(dom: any) {
 
         void main() {
             // 红色
-            gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+            // gl_FragColor = vec4(vUv, 0.0, 1.0);
+            vec3 color = vec3(step(0.5, fract(vUv.x * 3.0)));
+            gl_FragColor = vec4(color, 1.0);
         }
     `;
 
-    // Mesh = Geometry + Material
+    // Mesh = Geometry + Material 网格 = 几何体 + 材质
     const geometry = new THREE.PlaneGeometry(1, 1);
 
     // const material = new THREE.MeshBasicMaterial({
